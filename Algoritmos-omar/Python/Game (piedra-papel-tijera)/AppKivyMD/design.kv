@@ -1,0 +1,93 @@
+<ui>:
+    MDScreen:
+        name: 'main-screen'
+        md_bg_color: [0.78, 0.57, 0.96] #background color
+        RelativeLayout:
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: 1, None #tamaño del container 
+                height: dp(200) #altura fija
+                pos_hint: {'top': 1}
+
+                MDBoxLayout:   #container donde escribo las reglas del juego
+                    orientation: 'horizontal'
+                    padding: '5dp'
+                    pos_hint: {'top': 1} #sirve para que mi boxLayout este ubicado en la parte superior
+                    MDCard:
+                        radius: '10dp'
+                        padding: '10dp'
+                        line_color: [0.61, 0.64, 0.98]
+
+                        MDLabel: #lugar donde puedo colocar mi texto
+                            text: "Piedra - Papel - Tijera"
+                            halign: 'center' 
+                            pos_hint: {'center_x': 0.2,'center_y': 0.5} #posicion del texto
+                        
+                        MDLabel:
+                            text: "Reglas del juego: \n1. La piedra aplasta la tijera \n2. La tijera corta el papel \n3. El papel envuelve la piedra \n4. En caso de empate se juega otra vez \n5. El primero que llegue a 10 puntos Gana!!"
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 0.3, 0.1
+            height: dp(100)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            MDCard:
+                radius: '10dp'
+                padding: '10dp'
+                line_color: [0.61, 0.64, 0.98]
+                MDLabel:
+                    id: answer_machine
+                    text: 'hola'
+                    halign: 'center'
+
+        BoxLayout: #Layout buttons
+            orientation: 'horizontal'
+            size_hint: None, None #desactivamos el ancho automatico para no tener ningun problema al centrar los botones
+            width: self.minimum_width  # Ancho mínimo necesario
+            height: dp(48)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1} 
+            spacing: '10dp' #espacio entre los botones
+
+            MDRaisedButton:
+                id: stone
+                text: "Piedra"
+                halign: 'center'
+                on_press: app.fun_stone()
+            MDRaisedButton:
+                id: paper
+                text: "Papel"
+                halign: 'center'
+                on_press: app.fun_paper()
+            MDRaisedButton:
+                id: scissors
+                text: "Tijera"
+                halign: 'center'
+                on_press: app.fun_scissors()
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 0.3, 0.1
+            height: dp(100)
+            pos_hint: {'center_x': 0.3, 'center_y': 0.3}
+            MDCard:
+                radius: '10dp'
+                padding: '10dp'
+                line_color: [0.61, 0.64, 0.98]
+                MDLabel:
+                    id: scoreMachine
+                    text: 'Puntaje Maquina: '
+                    halign: 'center'
+        
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 0.3, 0.1
+            height: dp(100)
+            pos_hint: {'center_x': 0.7, 'center_y': 0.3}
+            MDCard:
+                radius: '10dp'
+                padding: '10dp'
+                line_color: [0.61, 0.64, 0.98]
+                MDLabel:
+                    id: scorePlayer
+                    text: 'Puntaje Jugador: '
+                    halign: 'center'
+#pyqt6         
